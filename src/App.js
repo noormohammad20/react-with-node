@@ -25,7 +25,8 @@ function App() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        const newUsers = [...users, data]
+        setUsers(newUsers)
       })
 
   }
@@ -39,7 +40,7 @@ function App() {
       </form>
       <ul>
         {
-          users.map(user => <li>key={user.id} Name:{user.name} Email:{user.email}</li>)
+          users.map(user => <li key={user.id} >Id:{user.id} Name:{user.name} Email:{user.email}</li>)
         }
       </ul>
     </div>
